@@ -3,32 +3,35 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { EventExplorer } from "@/components/event-explorer"
 import { NewsletterSection } from "@/components/newsletter-section"
-import { Badge } from "@/components/ui/badge"
+import { HomeHero } from "@/components/home-hero"
+import { FeaturesSection } from "@/components/features-section"
 
 export default async function Home() {
   const events = await getEvents()
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col font-sans selection:bg-primary/20">
       <SiteHeader />
       
       <main className="flex-grow">
-        <div className="container mx-auto px-4 py-12">
-          {/* Hero Section */}
-          <section className="text-center mb-16 space-y-6 pt-8">
-            <Badge variant="outline" className="px-4 py-1 text-sm rounded-full border-primary/20 bg-primary/5 text-primary">
-              The Future of Tech is Here
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600 dark:to-blue-400">
-              Agentic AI & Tech Events 2026
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Discover the most important conferences, summits, and meetups defining the era of autonomous agents and artificial intelligence.
-            </p>
-          </section>
+        {/* New Hero Section */}
+        <HomeHero />
 
-          {/* Events Explorer */}
-          <section id="events" className="max-w-7xl mx-auto mb-20">
+        {/* Value Proposition / SEO Section */}
+        <FeaturesSection />
+
+        {/* Main Application Area */}
+        <div className="container mx-auto px-4 py-16 md:py-24">
+          <section id="events" className="max-w-7xl mx-auto space-y-12">
+            <div className="text-center space-y-4 max-w-3xl mx-auto mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                Explore Verified 2026 Events
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Search, filter, and add to your calendar. From massive expos like CES to intimate AI summits.
+              </p>
+            </div>
+            
             <EventExplorer initialEvents={events} />
           </section>
         </div>
