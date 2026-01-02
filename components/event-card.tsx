@@ -2,7 +2,7 @@ import { Event } from "@/types"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Calendar, MapPin, ExternalLink, CalendarPlus, Mic, CheckCircle2, MoreVertical, Flag, Download } from "lucide-react"
+import { Calendar, MapPin, ExternalLink, CalendarPlus, Mic, CheckCircle2, MoreVertical, Flag, Download, Share2, Bot, Linkedin, Twitter } from "lucide-react"
 import Link from "next/link"
 import { createGoogleCalendarUrl, createOutlookCalendarUrl, createICSFile } from "@/lib/calendar"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
@@ -14,6 +14,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator
 } from "@/components/ui/dropdown-menu"
+import { toast } from "sonner"
 
 interface EventCardProps {
   event: Event
@@ -23,6 +24,28 @@ export function EventCard({ event }: EventCardProps) {
   const isPast = new Date(event.date) < new Date();
   const hasOpenCFP = event.cfpDeadline ? new Date(event.cfpDeadline) > new Date() : false;
   
+  const copyAgentPrompt = () => {
+    const prompt = `Task: Add this event to my schedule and research travel logistics.
+Event: ${event.title}
+Date: ${event.date} ${event.endDate ? `to ${event.endDate}` : ''}
+Location: ${event.location}
+URL: ${event.url}
+Description: ${event.description}
+Action items:
+1. Block dates in calendar.
+2. Find flight options arriving 1 day prior.
+3. Find hotels near the venue.
+4. Check if registration is open.`;
+    
+    navigator.clipboard.writeText(prompt);
+    toast.success("Agent prompt copied to clipboard!", {
+      description: "Paste this into ChatGPT, Claude, or your AI assistant.",
+    });
+  };
+
+  const shareUrl = `https://agenticai.events`; // Ideally deep link to event ID
+  const shareText = `Check out ${event.title} at ${event.location} on AgenticAI.events! #AgenticAI #TechEvents`;
+
   return (
     <Card className="flex flex-col h-full hover:shadow-lg transition-shadow duration-200 border-primary/10 group relative">
       <CardHeader className="pb-3">
@@ -123,6 +146,44 @@ export function EventCard({ event }: EventCardProps) {
           </Link>
         </Button>
         
+        {/* Share / AI Actions */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary">
+              <Share2 className="w-5 h-5" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuLabel>Share & Actions</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={copyAgentPrompt} className="cursor-pointer">
+              <Bot className="w-4 h-4 mr-2 text-primary" /> Copy for AI Agent
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem asChild>
+              <a 
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="cursor-pointer"
+              >
+                <Twitter className="w-4 h-4 mr-2" /> Share on X
+              </a>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <a 
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="cursor-pointer"
+              >
+                <Linkedin className="w-4 h-4 mr-2" /> Share on LinkedIn
+              </a>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+        {/* Calendar Actions */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary">
