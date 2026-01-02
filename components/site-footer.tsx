@@ -1,4 +1,4 @@
-import { AlertTriangle } from "lucide-react"
+import { AlertTriangle, Heart } from "lucide-react"
 
 export function SiteFooter() {
   return (
@@ -30,8 +30,21 @@ export function SiteFooter() {
           </div>
         </div>
         
-        <div className="pt-8 border-t text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} AgenticAI.events. All rights reserved.
+        <div className="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+          <div>
+            © {new Date().getFullYear()} AgenticAI.events. All rights reserved.
+          </div>
+          <div className="flex items-center gap-1">
+            Made with <Heart className="h-3 w-3 text-red-500 fill-current" /> by{" "}
+            <a 
+              href="https://github.com/imrulo" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="font-medium hover:text-foreground hover:underline underline-offset-4 transition-colors"
+            >
+              imrulo.eth
+            </a>
+          </div>
         </div>
       </div>
     </footer>
