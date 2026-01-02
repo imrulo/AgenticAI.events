@@ -14,6 +14,10 @@ export interface Event {
     lat: number;
     lng: number;
   };
+  // New verification fields
+  isVerified?: boolean; // Manually verified by maintainers
+  lastVerified?: string; // Date when it was last checked
+  status?: 'scheduled' | 'cancelled' | 'postponed' | 'sold-out';
 }
 
 export type EventCategory = 'All' | 'Conference' | 'Summit' | 'Meetup' | 'Webinar' | 'Academic' | 'Hackathon';

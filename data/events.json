@@ -10,7 +10,10 @@
     "tags": ["Consumer Tech", "AI", "Robotics", "Innovation"],
     "url": "https://www.ces.tech/",
     "isFeatured": true,
-    "coordinates": { "lat": 36.1699, "lng": -115.1398 }
+    "coordinates": { "lat": 36.1699, "lng": -115.1398 },
+    "isVerified": true,
+    "lastVerified": "2025-05-15",
+    "status": "scheduled"
   },
   {
     "id": "mwc-2026",
@@ -23,7 +26,10 @@
     "tags": ["Mobile", "5G", "Edge AI", "Connectivity"],
     "url": "https://www.mwcbarcelona.com/",
     "isFeatured": false,
-    "coordinates": { "lat": 41.3851, "lng": 2.1734 }
+    "coordinates": { "lat": 41.3851, "lng": 2.1734 },
+    "isVerified": true,
+    "lastVerified": "2025-05-15",
+    "status": "scheduled"
   },
   {
     "id": "nvidia-gtc-2026",
@@ -37,7 +43,10 @@
     "url": "https://www.nvidia.com/gtc/",
     "isFeatured": true,
     "cfpDeadline": "2025-11-01",
-    "coordinates": { "lat": 37.3382, "lng": -121.8863 }
+    "coordinates": { "lat": 37.3382, "lng": -121.8863 },
+    "isVerified": true,
+    "lastVerified": "2025-05-15",
+    "status": "scheduled"
   },
   {
     "id": "agentic-ai-summit-2026",
@@ -51,7 +60,9 @@
     "url": "#",
     "isFeatured": true,
     "cfpDeadline": "2026-01-15",
-    "coordinates": { "lat": 37.7749, "lng": -122.4194 }
+    "coordinates": { "lat": 37.7749, "lng": -122.4194 },
+    "isVerified": false,
+    "status": "scheduled"
   },
   {
     "id": "google-io-2026",
@@ -64,7 +75,10 @@
     "tags": ["Google", "Android", "AI", "Web"],
     "url": "https://io.google/",
     "isFeatured": true,
-    "coordinates": { "lat": 37.3861, "lng": -122.0838 }
+    "coordinates": { "lat": 37.3861, "lng": -122.0838 },
+    "isVerified": true,
+    "lastVerified": "2025-05-15",
+    "status": "scheduled"
   },
   {
     "id": "autonomous-agents-world",
@@ -78,7 +92,9 @@
     "url": "#",
     "isFeatured": false,
     "cfpDeadline": "2026-02-28",
-    "coordinates": { "lat": 51.5074, "lng": -0.1278 }
+    "coordinates": { "lat": 51.5074, "lng": -0.1278 },
+    "isVerified": false,
+    "status": "scheduled"
   },
   {
     "id": "neurips-2026",
@@ -92,7 +108,10 @@
     "url": "https://neurips.cc/",
     "isFeatured": false,
     "cfpDeadline": "2026-05-20",
-    "coordinates": { "lat": 49.2827, "lng": -123.1207 }
+    "coordinates": { "lat": 49.2827, "lng": -123.1207 },
+    "isVerified": true,
+    "lastVerified": "2025-05-15",
+    "status": "scheduled"
   },
   {
     "id": "openai-devday-2026",
@@ -104,7 +123,10 @@
     "tags": ["OpenAI", "GPT", "AGI"],
     "url": "https://openai.com/",
     "isFeatured": true,
-    "coordinates": { "lat": 37.7749, "lng": -122.4194 }
+    "coordinates": { "lat": 37.7749, "lng": -122.4194 },
+    "isVerified": true,
+    "lastVerified": "2025-05-15",
+    "status": "scheduled"
   },
   {
     "id": "tech-crunch-disrupt-2026",
@@ -118,6 +140,9 @@
     "url": "https://techcrunch.com/events/disrupt-2026/",
     "isFeatured": false,
     "cfpDeadline": "2026-06-30",
-    "coordinates": { "lat": 37.7749, "lng": -122.4194 }
+    "coordinates": { "lat": 37.7749, "lng": -122.4194 },
+    "isVerified": true,
+    "lastVerified": "2025-05-15",
+    "status": "scheduled"
   }
 ]
