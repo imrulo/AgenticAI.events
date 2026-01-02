@@ -17,29 +17,67 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: "AgenticAI.events | The Ultimate Guide to 2026 AI & Tech Events",
+  metadataBase: new URL("https://agenticai.events"),
+  title: {
+    default: "AgenticAI.events | Global AI & Tech Conferences 2026",
+    template: "%s | AgenticAI.events",
+  },
   description:
-    "Discover the most important Agentic AI, Autonomous Systems, and Technology conferences of 2026. Your curated guide to the future of tech events.",
+    "The definitive, verified guide to the most important Artificial Intelligence, Agentic AI, and Technology conferences of 2026. Discover global events from CES and Web Summit to HumanX and DeepFest.",
   keywords: [
     "AI events 2026",
-    "Agentic AI",
-    "Tech conferences",
-    "Autonomous agents",
+    "Agentic AI conferences",
+    "Tech conferences 2026",
+    "Autonomous agents summits",
     "Machine Learning events",
-    "Technology summits",
+    "Generative AI conferences",
+    "CES 2026",
+    "Web Summit 2026",
+    "HumanX 2026",
+    "DeepFest Riyadh",
+    "Global Tech Events",
+    "Silicon Valley Tech Events",
   ],
+  authors: [{ name: "imrulo.eth", url: "https://github.com/imrulo" }],
+  creator: "imrulo.eth",
+  publisher: "AgenticAI.events",
   openGraph: {
-    title: "AgenticAI.events | 2026 Tech Event Guide",
+    title: "AgenticAI.events | Global AI & Tech Conferences 2026",
     description:
-      "Curated list of top Agentic AI and Technology events for 2026. Stay ahead of the curve.",
+      "Your curated, verified guide to the future of tech. Explore the top AI, Agentic, and Tech events happening worldwide in 2026.",
     url: "https://agenticai.events",
     siteName: "AgenticAI.events",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png", // We'll need to ensure this exists or use a default if not
+        width: 1200,
+        height: 630,
+        alt: "AgenticAI.events 2026 Preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AgenticAI.events | Global AI & Tech Conferences 2026",
+    description:
+      "Discover the verified list of 2026's top AI and Tech conferences. From Autonomous Agents to Global Summits.",
+    creator: "@imrulo", // Assuming this handle or similar
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    // google: "verification_token", // Placeholder for future
   },
 }
 
