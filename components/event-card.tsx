@@ -2,8 +2,10 @@ import { Event } from "@/types"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Calendar, MapPin, ExternalLink } from "lucide-react"
+import { Calendar, MapPin, ExternalLink, CalendarPlus } from "lucide-react"
 import Link from "next/link"
+import { createGoogleCalendarUrl } from "@/lib/calendar"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
 interface EventCardProps {
   event: Event
@@ -11,9 +13,10 @@ interface EventCardProps {
 
 export function EventCard({ event }: EventCardProps) {
   const isPast = new Date(event.date) < new Date();
+  const googleCalendarUrl = createGoogleCalendarUrl(event);
   
   return (
-    <Card className="flex flex-col h-full hover:shadow-lg transition-shadow duration-200 border-primary/10">
+    <Card className="flex flex-col h-full hover:shadow-lg transition-shadow duration-200 border-primary/10 group">
       <CardHeader className="pb-3">
         <div className="flex justify-between items-start gap-2">
           <Badge variant={event.isFeatured ? "default" : "secondary"} className="mb-2">
@@ -21,7 +24,9 @@ export function EventCard({ event }: EventCardProps) {
           </Badge>
           {isPast && <Badge variant="outline" className="text-muted-foreground">Past</Badge>}
         </div>
-        <CardTitle className="text-xl font-bold leading-tight">{event.title}</CardTitle>
+        <CardTitle className="text-xl font-bold leading-tight group-hover:text-primary transition-colors">
+          {event.title}
+        </CardTitle>
       </CardHeader>
       <CardContent className="flex-grow">
         <div className="flex flex-col gap-2 text-sm text-muted-foreground mb-4">
@@ -48,12 +53,27 @@ export function EventCard({ event }: EventCardProps) {
           ))}
         </div>
       </CardContent>
-      <CardFooter>
-        <Button asChild className="w-full gap-2" variant={event.isFeatured ? "default" : "outline"}>
+      <CardFooter className="gap-2">
+        <Button asChild className="flex-1 gap-2" variant={event.isFeatured ? "default" : "outline"}>
           <Link href={event.url} target="_blank" rel="noopener noreferrer">
             Visit Website <ExternalLink className="w-4 h-4" />
           </Link>
         </Button>
+        
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="ghost" size="icon" asChild className="text-muted-foreground hover:text-primary">
+                <a href={googleCalendarUrl} target="_blank" rel="noopener noreferrer">
+                  <CalendarPlus className="w-5 h-5" />
+                </a>
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Add to Google Calendar</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </CardFooter>
     </Card>
   )
