@@ -2,7 +2,7 @@ import { Event } from "@/types"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Calendar, MapPin, ExternalLink, CalendarPlus } from "lucide-react"
+import { Calendar, MapPin, ExternalLink, CalendarPlus, Mic } from "lucide-react"
 import Link from "next/link"
 import { createGoogleCalendarUrl } from "@/lib/calendar"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
@@ -14,6 +14,7 @@ interface EventCardProps {
 export function EventCard({ event }: EventCardProps) {
   const isPast = new Date(event.date) < new Date();
   const googleCalendarUrl = createGoogleCalendarUrl(event);
+  const hasOpenCFP = event.cfpDeadline ? new Date(event.cfpDeadline) > new Date() : false;
   
   return (
     <Card className="flex flex-col h-full hover:shadow-lg transition-shadow duration-200 border-primary/10 group">
@@ -22,7 +23,23 @@ export function EventCard({ event }: EventCardProps) {
           <Badge variant={event.isFeatured ? "default" : "secondary"} className="mb-2">
             {event.category}
           </Badge>
-          {isPast && <Badge variant="outline" className="text-muted-foreground">Past</Badge>}
+          <div className="flex gap-2">
+            {hasOpenCFP && (
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Badge variant="outline" className="border-green-500 text-green-600 bg-green-50 dark:bg-green-950/20 mb-2 cursor-help">
+                      <Mic className="w-3 h-3 mr-1" /> CFP Open
+                    </Badge>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Call for Papers closes on {new Date(event.cfpDeadline!).toLocaleDateString()}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )}
+            {isPast && <Badge variant="outline" className="text-muted-foreground mb-2">Past</Badge>}
+          </div>
         </div>
         <CardTitle className="text-xl font-bold leading-tight group-hover:text-primary transition-colors">
           {event.title}

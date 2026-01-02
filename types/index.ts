@@ -9,6 +9,11 @@ export interface Event {
   tags: string[];
   url: string;
   isFeatured: boolean;
+  cfpDeadline?: string; // ISO date string YYYY-MM-DD
+  coordinates?: {
+    lat: number;
+    lng: number;
+  };
 }
 
 export type EventCategory = 'All' | 'Conference' | 'Summit' | 'Meetup' | 'Webinar' | 'Academic' | 'Hackathon';
