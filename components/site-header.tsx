@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { CalendarDays } from "lucide-react"
 import { SubmitEventButton } from "@/components/submit-event-button"
+import { SponsorButton } from "@/components/sponsor-button"
 
 export function SiteHeader() {
   return (
@@ -10,12 +11,15 @@ export function SiteHeader() {
           <CalendarDays className="h-6 w-6 text-primary" />
           <span>AgenticAI.events</span>
         </Link>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 md:gap-6">
           <nav className="hidden md:flex gap-6 text-sm font-medium items-center">
             <Link href="#events" className="hover:text-primary transition-colors">Events</Link>
             <Link href="#about" className="hover:text-primary transition-colors">About</Link>
           </nav>
-          <SubmitEventButton />
+          <div className="flex items-center gap-2">
+            <SponsorButton className="hidden sm:flex" />
+            <SubmitEventButton />
+          </div>
         </div>
       </div>
     </header>

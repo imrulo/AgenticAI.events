@@ -20,4 +20,4 @@ export interface Event {
   status?: 'scheduled' | 'cancelled' | 'postponed' | 'sold-out';
 }
 
-export type EventCategory = 'All' | 'Conference' | 'Summit' | 'Meetup' | 'Webinar' | 'Academic' | 'Hackathon';
+export type EventCategory = 'All' | 'Conference' | 'Summit' | 'Meetup' | 'Webinar' | 'Academic' | 'Hackathon' | 'Expo';

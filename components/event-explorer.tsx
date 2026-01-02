@@ -68,6 +68,7 @@ export function EventExplorer({ initialEvents }: EventExplorerProps) {
                 <SelectItem value="Meetup">Meetup</SelectItem>
                 <SelectItem value="Hackathon">Hackathon</SelectItem>
                 <SelectItem value="Academic">Academic</SelectItem>
+                <SelectItem value="Expo">Expo</SelectItem>
               </SelectContent>
             </Select>
           </div>

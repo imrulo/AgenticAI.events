@@ -1,4 +1,5 @@
 import { AlertTriangle, Heart } from "lucide-react"
+import { SponsorButton } from "@/components/sponsor-button"
 
 export function SiteFooter() {
   return (
@@ -10,6 +11,9 @@ export function SiteFooter() {
             <p className="text-sm text-muted-foreground max-w-xs">
               The definitive guide to AI and tech events in 2026 and beyond.
             </p>
+            <div className="mt-4">
+              <SponsorButton variant="outline" className="w-full md:w-auto" />
+            </div>
           </div>
           
           <div className="flex-1 max-w-md p-4 bg-background border rounded-lg text-xs text-muted-foreground flex gap-3">
@@ -23,7 +27,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="flex gap-6 text-sm text-muted-foreground">
+          <div className="flex gap-6 text-sm text-muted-foreground items-center">
             <a href="#" className="hover:text-foreground">Privacy</a>
             <a href="#" className="hover:text-foreground">Terms</a>
             <a href="mailto:imrulo.eth@proton.me" className="hover:text-foreground">Contact</a>
