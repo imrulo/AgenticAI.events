@@ -1,0 +1,109 @@
+[
+  {
+    "id": "ces-2026",
+    "title": "CES 2026",
+    "date": "2026-01-06",
+    "endDate": "2026-01-09",
+    "location": "Las Vegas, USA",
+    "description": "The most powerful tech event in the world, the proving ground for breakthrough technologies and global innovators.",
+    "category": "Conference",
+    "tags": ["Consumer Tech", "AI", "Robotics", "Innovation"],
+    "url": "https://www.ces.tech/",
+    "isFeatured": true
+  },
+  {
+    "id": "mwc-2026",
+    "title": "MWC Barcelona 2026",
+    "date": "2026-03-02",
+    "endDate": "2026-03-05",
+    "location": "Barcelona, Spain",
+    "description": "The world's largest and most influential connectivity event. Expect major announcements in Edge AI and mobile agents.",
+    "category": "Conference",
+    "tags": ["Mobile", "5G", "Edge AI", "Connectivity"],
+    "url": "https://www.mwcbarcelona.com/",
+    "isFeatured": false
+  },
+  {
+    "id": "nvidia-gtc-2026",
+    "title": "NVIDIA GTC 2026",
+    "date": "2026-03-16",
+    "endDate": "2026-03-19",
+    "location": "San Jose, USA & Virtual",
+    "description": "The developer conference for the era of AI. Deep dives into generative AI, LLMs, and autonomous agents.",
+    "category": "Conference",
+    "tags": ["AI", "GPU", "Deep Learning", "Generative AI"],
+    "url": "https://www.nvidia.com/gtc/",
+    "isFeatured": true
+  },
+  {
+    "id": "agentic-ai-summit-2026",
+    "title": "Agentic AI Summit 2026",
+    "date": "2026-04-15",
+    "endDate": "2026-04-16",
+    "location": "San Francisco, USA",
+    "description": "A focused gathering for developers and researchers building the next generation of autonomous AI agents.",
+    "category": "Summit",
+    "tags": ["Agentic AI", "Autonomous Systems", "LLMs"],
+    "url": "#",
+    "isFeatured": true
+  },
+  {
+    "id": "google-io-2026",
+    "title": "Google I/O 2026",
+    "date": "2026-05-12",
+    "endDate": "2026-05-13",
+    "location": "Mountain View, USA & Virtual",
+    "description": "Google's annual developer conference. Expect updates on Gemini, Android, and AI integration across platforms.",
+    "category": "Conference",
+    "tags": ["Google", "Android", "AI", "Web"],
+    "url": "https://io.google/",
+    "isFeatured": true
+  },
+  {
+    "id": "autonomous-agents-world",
+    "title": "Autonomous Agents World",
+    "date": "2026-06-20",
+    "endDate": "2026-06-21",
+    "location": "London, UK",
+    "description": "Exploring the practical applications of autonomous agents in enterprise and daily life.",
+    "category": "Conference",
+    "tags": ["Agents", "Enterprise AI", "Automation"],
+    "url": "#",
+    "isFeatured": false
+  },
+  {
+    "id": "neurips-2026",
+    "title": "NeurIPS 2026",
+    "date": "2026-12-08",
+    "endDate": "2026-12-14",
+    "location": "TBD",
+    "description": "Conference on Neural Information Processing Systems. The premier academic gathering for AI research.",
+    "category": "Academic",
+    "tags": ["Research", "Machine Learning", "Deep Learning"],
+    "url": "https://neurips.cc/",
+    "isFeatured": false
+  },
+  {
+    "id": "openai-devday-2026",
+    "title": "OpenAI DevDay 2026",
+    "date": "2026-11-06",
+    "location": "San Francisco, USA",
+    "description": "OpenAI's annual developer conference previewing the latest in GPT models and agent capabilities.",
+    "category": "Conference",
+    "tags": ["OpenAI", "GPT", "AGI"],
+    "url": "https://openai.com/",
+    "isFeatured": true
+  },
+  {
+    "id": "tech-crunch-disrupt-2026",
+    "title": "TechCrunch Disrupt 2026",
+    "date": "2026-10-20",
+    "endDate": "2026-10-22",
+    "location": "San Francisco, USA",
+    "description": "The world's leading authority in debuting revolutionary startups, introducing game-changing technologies.",
+    "category": "Conference",
+    "tags": ["Startups", "Venture Capital", "Tech"],
+    "url": "https://techcrunch.com/events/disrupt-2026/",
+    "isFeatured": false
+  }
+]

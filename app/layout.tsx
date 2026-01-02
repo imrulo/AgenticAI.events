@@ -1,68 +1,44 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Playfair_Display, Source_Sans_3 } from "next/font/google"
+import { Inter, Space_Grotesk } from "next/font/google"
 import "./globals.css"
 
-const playfair = Playfair_Display({
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
   display: "swap",
-  variable: "--font-playfair",
-  weight: ["400", "700"],
 })
 
-const sourceSans = Source_Sans_3({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
+  variable: "--font-space-grotesk",
   display: "swap",
-  variable: "--font-source-sans",
-  weight: ["400", "600"],
 })
 
 export const metadata: Metadata = {
-  title: "Premium Domain AgenticAI.events for Sale - Unlock Your Brand's Potential in AI Events",
+  title: "AgenticAI.events | The Ultimate Guide to 2026 AI & Tech Events",
   description:
-    "Acquire AgenticAI.events, a memorable exact-match domain ideal for AI conferences, agentic AI platforms, and event management. Boost SEO, credibility, and traffic with this versatile premium asset.",
-  generator: "AgenticAI.events",
+    "Discover the most important Agentic AI, Autonomous Systems, and Technology conferences of 2026. Your curated guide to the future of tech events.",
   keywords: [
-    "AI events",
-    "agentic AI",
-    "domain for sale",
-    "premium domain",
-    "AI conferences",
-    "artificial intelligence",
+    "AI events 2026",
+    "Agentic AI",
+    "Tech conferences",
+    "Autonomous agents",
+    "Machine Learning events",
+    "Technology summits",
   ],
   openGraph: {
-    title: "Premium Domain AgenticAI.events for Sale - AI Events & Conferences",
+    title: "AgenticAI.events | 2026 Tech Event Guide",
     description:
-      "Secure the perfect domain for your AI events platform. AgenticAI.events - premium, brandable, and SEO-optimized for the artificial intelligence industry.",
+      "Curated list of top Agentic AI and Technology events for 2026. Stay ahead of the curve.",
     url: "https://agenticai.events",
     siteName: "AgenticAI.events",
-    images: [
-      {
-        url: "/futuristic-ai-conference.png",
-        width: 1200,
-        height: 630,
-        alt: "AgenticAI.events - Premium Domain for AI Events",
-      },
-    ],
     locale: "en_US",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Premium Domain AgenticAI.events for Sale - AI Events & Conferences",
-    description: "Secure the perfect domain for your AI events platform. Premium, brandable, and SEO-optimized.",
-    images: ["/futuristic-ai-conference.png"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
 }
 
@@ -72,13 +48,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${sourceSans.variable}`}>
-      <head>
-        <link rel="canonical" href="https://agenticai.events" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className="font-sans antialiased">{children}</body>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <body className={`font-sans antialiased bg-background text-foreground min-h-screen ${inter.className}`}>
+        {children}
+      </body>
     </html>
   )
 }
