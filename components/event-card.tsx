@@ -2,15 +2,17 @@ import { Event } from "@/types"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Calendar, MapPin, ExternalLink, CalendarPlus, Mic, CheckCircle2, MoreVertical, Flag } from "lucide-react"
+import { Calendar, MapPin, ExternalLink, CalendarPlus, Mic, CheckCircle2, MoreVertical, Flag, Download } from "lucide-react"
 import Link from "next/link"
-import { createGoogleCalendarUrl } from "@/lib/calendar"
+import { createGoogleCalendarUrl, createOutlookCalendarUrl, createICSFile } from "@/lib/calendar"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuLabel,
+  DropdownMenuSeparator
 } from "@/components/ui/dropdown-menu"
 
 interface EventCardProps {
@@ -19,7 +21,6 @@ interface EventCardProps {
 
 export function EventCard({ event }: EventCardProps) {
   const isPast = new Date(event.date) < new Date();
-  const googleCalendarUrl = createGoogleCalendarUrl(event);
   const hasOpenCFP = event.cfpDeadline ? new Date(event.cfpDeadline) > new Date() : false;
   
   return (
@@ -122,20 +123,32 @@ export function EventCard({ event }: EventCardProps) {
           </Link>
         </Button>
         
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button variant="ghost" size="icon" asChild className="text-muted-foreground hover:text-primary">
-                <a href={googleCalendarUrl} target="_blank" rel="noopener noreferrer">
-                  <CalendarPlus className="w-5 h-5" />
-                </a>
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Add to Google Calendar</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary">
+              <CalendarPlus className="w-5 h-5" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuLabel>Add to Calendar</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem asChild>
+              <a href={createGoogleCalendarUrl(event)} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                Google Calendar
+              </a>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <a href={createOutlookCalendarUrl(event)} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                Outlook Web
+              </a>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <a href={createICSFile(event)} download={`${event.id}.ics`} className="cursor-pointer">
+                <Download className="w-3 h-3 mr-2" /> Apple / Outlook (ICS)
+              </a>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </CardFooter>
     </Card>
   )
